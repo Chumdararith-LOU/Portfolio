@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Contact Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+
+    /* Focus outset for accessibility */
+    .nav a:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        margin: 4px 0;
+        background: var(--text-light);
+        transition: var(--transition);
+    }
+
+
+    /* Hero Section (For About, Work, & Contact pages) */
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+        padding: 4rem 0;
+    }
+    .hero-section .hero-title {
+        font-size: 3rem;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 600px;
+    }
+
+    /* Work Section Specific */
+    .work-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 3rem 0;
+        cursor: pointer;
+    }
+
+    .work-section img.work-icon {
+        width: 50px;
+        height: 50px;
+        transition: var(--transition);
+    }
+
+    .work-section img.work-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .work-section>div {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-light);
+    }
+
+    /* Projects Showcase */
+    .projects-showcase {
+        padding-bottom: 4rem;
+    }
+
+    /* Project Cards */
+    .project-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 3rem 0;
+        flex-wrap: wrap;
+    }
+
+    .project-card .project-left,
+    .project-card .project-right {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .project-number {
+        font-size: 1.2rem;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .project-title {
+        font-size: 1.6rem;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+    }
+
+    .project-description,
+    .project-technical {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    .project-link {
+        font-size: 1rem;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+
+    .project-link:hover {
+        color: var(--accent);
+        transform: translateY(-3px);
+    }
+
+    .project-link.wip {
+        cursor: default;
+        opacity: 0.6;
+    }
+
+    /* Project Images */
+    .project-image {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .project-image:hover {
+        transform: scale(1.03);
+    }
+
+    /* Separators */
+    .project-separator {
+        border: 0;
+        height: 1px;
+        background: var(--border);
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    /* CONTACT FORM & Related Styles */
+    .hero-section {
+        /* Contact page hero intro */
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hero-section .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    .hero-section .hero-title .main-text {
+        display: block;
+    }
+
+    .hero-section .hero-title .accent-text {
+        display: block;
+        color: var(--accent);
+    }
+
+    .form-section {
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .form-section .success-message {
+        background: var(--primary);
+        color: var(--bg-dark);
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        display: none;
+        margin-bottom: 2rem;
+    }
+
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--bg-light);
+        color: var(--text-light);
+        transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: var(--accent);
+        outline: none;
+    }
+
+    .error-message {
+        margin-top: 0.5rem;
+        color: var(--error-color);
+        font-size: 0.9rem;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .submit-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: var(--primary);
+        border: none;
+        color: var(--bg-dark);
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 600;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(54, 130, 217, 0.3);
+    }
+
+    .send-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Footer */
+    .footer-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-nav-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--bg-light);
+        transition: var(--transition);
+    }
+
+    .social-link:hover {
+        background: var(--primary);
+    }
+
+    .social-icon {
+        width: 20px;
+        height: 20px;
+        fill: var(--text-light);
+    }
+
+    /* Toast Notification */
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+
+        .hero-section {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1,
+        .hero-left h2,
+        .hero-section .hero-title {
+            font-size: 2.4rem;
+        }
+
+        .project-card {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-left h2,
+        .hero-section .hero-title {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container {
+            padding: 0 1.5rem;
+        }
+
+        .hero-left h2,
+        .hero-section .hero-title {
+            font-size: 1.8rem;
+        }
+
+        .hero-section .hero-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>My Portfolio</h1>
+            <nav class="nav" id="nav">
+                <a href="Work.html">Work</a>
+                <a href="About.html">About</a>
+                <a href="#playground">Playground</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">
+                    <span class="main-text">Got a project in</span>
+                    <span class="accent-text">mind?</span>
+                </h1>
+                <img src="https://cdn.builder.io/api/v1/image/assets/bf461665dc8d44a091950db57a659405/68c631c9095281742baf8070c8ced8b84dea2df7?placeholderIfAbsent=true"
+                    alt="Project illustration" class="hero-image">
+            </section>
+
+            <!-- Form Section -->
+            <section class="form-section">
+                <div class="success-message" id="successMessage">
+                    Message sent successfully!
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" placeholder="Name" required>
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your email</label>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Message" required></textarea>
+                        <div class="error-message" id="messageError"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Send Message</span>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/bf461665dc8d44a091950db57a659405/4204afed058c45750aa15ddde153ba3eb148c3bf?placeholderIfAbsent=true"
+                            alt="Send icon" class="send-icon">
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <nav class="footer-nav">
+                <a href="Work.html"><span>Work</span></a>
+                <a href="About.html"><span>About me</span></a>
+                <a href="contact.html"><span>Contact</span></a>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/chum.dararith.1?mibextid=ZbWKwL" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="Img\facebook.png" class="social-icon" alt="Social media 1">
+                </a>
+                <a href="https://t.me/rith_lou" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\telegram.png" class="social-icon" alt="telegram.png">
+                </a>
+                <a href="https://www.youtube.com/@LouChumdararith" class="social-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="Img\youtube.png" class="social-icon" alt="youtube.png">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Mobile menu toggle
+            $('#menuToggle').click(function () {
+                $('#nav').toggleClass('active');
+                $(this).text($(this).text() === '☰' ? '✕' : '☰');
+            });
+
+            // Close mobile menu when clicking on nav links
+            $('#nav a').click(function () {
+                $('#nav').removeClass('active');
+                $('#menuToggle').text('☰');
+            });
+
+            // Smooth scrolling for navigation links
+            $('a[href^="#"]').click(function (e) {
+                e.preventDefault();
+                var target = $($(this).attr('href'));
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 100
+                    }, 800);
+                }
+            });
+
+            // Form validation and submission
+            $('#contactForm').submit(function (e) {
+                e.preventDefault();
+
+                // Clear previous errors
+                $('.error-message').text('');
+
+                var isValid = true;
+                var name = $('#name').val().trim();
+                var email = $('#email').val().trim();
+                var message = $('#message').val().trim();
+
+                // Validate name
+                if (name.length < 2) {
+                    $('#nameError').text('Name must be at least 2 characters');
+                    isValid = false;
+                }
+
+                // Validate email
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    $('#emailError').text('Please enter a valid email address');
+                    isValid = false;
+                }
+
+                // Validate message
+                if (message.length < 10) {
+                    $('#messageError').text('Message must be at least 10 characters');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Simulate form submission
+                    var $submitBtn = $('#submitBtn');
+                    var originalText = $submitBtn.find('span').text();
+
+                    $submitBtn.prop('disabled', true);
+                    $submitBtn.find('span').text('Sending...');
+
+                    setTimeout(function () {
+                        // Show success message
+                        $('#successMessage').fadeIn();
+
+                        // Reset form
+                        $('#contactForm')[0].reset();
+
+                        // Reset button
+                        $submitBtn.prop('disabled', false);
+                        $submitBtn.find('span').text(originalText);
+
+                        // Hide success message after 5 seconds
+                        setTimeout(function () {
+                            $('#successMessage').fadeOut();
+                        }, 5000);
+
+                        console.log('Form submitted:', { name: name, email: email, message: message });
+                    }, 1000);
+                }
+            });
+
+            // Add focus effects for better accessibility
+            $('input, textarea').focus(function () {
+                $(this).parent().addClass('focused');
+            }).blur(function () {
+                $(this).parent().removeClass('focused');
+            });
+
+            // Add loading animation for images
+            $('img').on('load', function () {
+                $(this).fadeIn(300);
+            });
+        });
+    </script>
+</body>
+
+</html>

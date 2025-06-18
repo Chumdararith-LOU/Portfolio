@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>My Portfolio</h1>
+            <nav class="nav" id="nav">
+                <a href="Work.html" class="active">Work</a>
+                <a href="About.html">About</a>
+                <a href="#playground">Playground</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-left">
+                    <h2>Hello, I'm LOU Chumdararith.<br></h2>
+                </div>
+                <div class="hero-right">
+                    <p>I am a web designer, and I'm very passionate and dedicated to my work. Meanwhile, my studies in
+                        AI Engineering fuel my curiosity for machine learning, neural networks, and intelligent systems.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Work Section -->
+            <section class="work-section">
+                <img src="Img\arrow-down.png" class="work-icon" alt="Work icon">
+                <div>My Work</div>
+            </section>
+
+            <!-- Projects Showcase -->
+            <section class="projects-showcase">
+                <!-- Project 1 -->
+                <article class="project-card first">
+                    <div class="project-left">
+                        <h3 class="project-number">01 / Car Management</h3>
+                        <div class="project-title">
+                            Car Dealership Management Program, is a topic of the Fundamentals of Programming course.
+                            <br><br><br>
+                        </div>
+                        <p class="project-description">
+                            Overview of the data structures used in the given C++ code. The code defines several data
+                            structures, including arrays, linked lists, and stacks, to manage various types of users and
+                            car information.
+                        </p>
+                        <p class="project-technical"></p>
+                        <a href="#" class="project-link active">More shots from this project ↗</a>
+                    </div>
+                    <div class="project-right">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/bf461665dc8d44a091950db57a659405/e8ac6d85274a9ba74cba8e85ee4acb21eacd6fa9?placeholderIfAbsent=true"
+                            class="project-image" alt="Car Management System Screenshot">
+                    </div>
+                </article>
+
+                <!-- Separator 1 -->
+                <hr class="project-separator separator first">
+
+                <!-- Project 2 -->
+                <article class="project-card second">
+                    <div class="project-left">
+                        <h3 class="project-number">02 / Music Platform</h3>
+                        <div class="project-title">
+                            <br><br><br>
+                        </div>
+                        <p class="project-description"></p>
+                        <p class="project-technical">
+                            This project is a JavaFX-based Media Management System that allows users to efficiently
+                            store, search, and play music and video files while integrating user profile management and
+                            an admin panel for database control. The system ensures a seamless user experience by
+                            implementing scene transitions, search functionalities, and database-driven file handling.
+                        </p>
+                        <a href="#" class="project-link active">See case study →</a>
+                    </div>
+                    <div class="project-right">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/bf461665dc8d44a091950db57a659405/f8a3e2c106ab15e274b0e453d0a8771257547c2b?placeholderIfAbsent=true"
+                            class="project-image" alt="Music Platform Screenshot">
+                    </div>
+                </article>
+
+                <!-- Separator 2 -->
+                <hr class="project-separator separator second">
+
+                <!-- Project 3 -->
+                <article class="project-card third">
+                    <div class="project-left">
+                        <h3 class="project-number">03 / SoundHub</h3>
+                        <div class="project-title">
+                            <br><br><br>
+                        </div>
+                        <p class="project-description"></p>
+                        <p class="project-technical">
+                            SoundHub is a specialized e-commerce platform focused on audio devices (headphones,
+                            earphones, and speakers) that features a unique comparison tool allowing customers to
+                            directly compare products side-by-side. The website offers a comprehensive shopping
+                            experience with product listings, detailed specifications, and an intuitive interface for
+                            making informed purchasing decisions.
+                        </p>
+                        <span class="project-link wip">Project WIP</span>
+                    </div>
+                    <div class="project-right">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/bf461665dc8d44a091950db57a659405/6bc59f6ed1abaadc312a89d01cdb5215aa0b0139?placeholderIfAbsent=true"
+                            class="project-image" alt="SoundHub E-commerce Platform Screenshot">
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <nav class="footer-nav">
+                <a href="Work.html"><span>Work</span></a>
+                <a href="About.html"><span>About me</span></a>
+                <a href="contact.html"><span>Contact</span></a>
+            </nav>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/chum.dararith.1?mibextid=ZbWKwL" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\facebook.png"
+                        class="social-icon" alt="Social media 1">
+                </a>
+                <a href="https://t.me/rith_lou" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\telegram.png"
+                        class="social-icon" alt="telegram.png">
+                </a>
+                <a href="https://www.youtube.com/@LouChumdararith" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\youtube.png"
+                        class="social-icon" alt="youtube.png">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Smooth scrolling for navigation links
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                if ($target.length) {
+                    $('html, body').stop().animate({
+                        'scrollTop': $target.offset().top
+                    }, 900, 'swing');
+                }
+            });
+
+            // Add hover effects for interactive elements
+            $('.nav-item, .footer-nav-item, .project-link.active').hover(
+                function () {
+                    $(this).css('cursor', 'pointer');
+                }
+            );
+
+            // Add click handlers for project links
+            $('.project-link.active').on('click', function (e) {
+                e.preventDefault();
+                console.log('Project link clicked:', $(this).text());
+                // Add your navigation logic here
+            });
+
+            // Add click handler for work section
+            $('.work-section').on('click', function () {
+                console.log('Work section clicked');
+                // Add your navigation logic here
+            });
+
+            // Add click handlers for social links
+            $('.social-link').on('click', function (e) {
+                e.preventDefault();
+                console.log('Social link clicked');
+                // Add your social media navigation logic here
+            });
+
+            // Image hover effects are handled by CSS transitions
+            console.log('Portfolio loaded successfully!');
+        });
+    </script>
+</body>
+
+</html>

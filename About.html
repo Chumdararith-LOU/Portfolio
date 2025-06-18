@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOU Chumdararith - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+    .header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+
+
+    .hero-left,
+    .hero-right,
+    .hero-content {
+        flex: 1;
+    }
+
+    .hero-left h2 {
+        font-size: 3rem;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-left h2 span {
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 600px;
+    }
+
+    /* Work Section */
+    .work-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 3rem 0;
+        cursor: pointer;
+    }
+
+    .work-section img.work-icon {
+        width: 50px;
+        height: 50px;
+        transition: var(--transition);
+    }
+
+    .work-section img.work-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .work-section>div {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-light);
+    }
+
+    /* Projects Showcase */
+    .projects-showcase {
+        padding-bottom: 4rem;
+    }
+
+    /* Project Cards */
+    .project-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 3rem 0;
+        flex-wrap: wrap;
+    }
+
+    .project-card .project-left,
+    .project-card .project-right {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .project-number {
+        font-size: 1.2rem;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .project-title {
+        font-size: 1.6rem;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+    }
+
+    .project-description,
+    .project-technical {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    .project-link {
+        font-size: 1rem;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+
+    .project-link:hover {
+        color: var(--accent);
+        transform: translateY(-3px);
+    }
+
+    .project-link.wip {
+        cursor: default;
+        opacity: 0.6;
+    }
+
+    /* Project Images */
+    .project-image {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .project-image:hover {
+        transform: scale(1.03);
+    }
+
+    /* Separators */
+    .project-separator {
+        border: 0;
+        height: 1px;
+        background: var(--border);
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    /* Footer */
+
+    .footer-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-nav-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link:hover {
+        background: var(--primary);
+    }
+
+    /* Toast Notification (if used) */
+
+    .toast.show {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .hero {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+
+        .hero-left h2 {
+            font-size: 2.4rem;
+        }
+
+        .project-card {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-left h2 {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-left h2 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">My Portfolio</h1>
+            <nav class="nav" id="nav">
+                <a href="Work.html">Work</a>
+                <a href="About.html" class="active">About</a>
+                <a href="#playground">Playground</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+        <hr>
+
+        <!-- Main Content -->
+        <main class="main" id="about">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Hi I'm LOU Chumdararith, UX/UI Designer and AI Developer.</h1>
+                    <p>
+                        My work revolves around human-centered design, AI-driven interfaces, and prototyping.
+                        Currently, I'm a student in Web Design based in Phnom Penh freelancing in UX/UI while actively
+                        seeking internships.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="Img\photo_2025-06-18_12-41-21.jpg"
+                        alt="Profile Photo of LOU Chumdararith" />
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="Software">
+                        <div class="skill-label">Main Software</div>
+                        <div class="skill-content">Visual Code Studio, MatLab, Jupyter Notebook, R Studio</div>
+                    </div>
+                    <div class="Design">
+                        <div class="skill-label">Design Tools</div>
+                        <div class="skill-content">Visual Code Studio, MatLab, Jupyter Notebook, R Studio, Adobe CC,
+                            Figma</div>
+                    </div>
+                    <div class="Main">
+                        <div class="skill-label">Main Skills</div>
+                        <div class="skill-content">Web designer, AI developing</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact" id="contact">
+                <h2>I am thrilled to answer to your next project</h2>
+                <div class="contact-info">
+                    <button class="contact-email" id="emailBtn">louchumdararith02@gmail.com</button>
+                    <br />
+                    <button class="contact-resume" id="resumeBtn">View Resume</button>
+                </div>
+                <hr class="contact-divider" />
+                <div class="contact-arrow">
+                    <svg width="42" height="21" viewBox="0 0 42 21" fill="none">
+                        <path
+                            d="M0 9.021L0 12.019L18.315 12.019L11.313 18.948L13.41 21L24 10.52L13.41 0.0170002L11.313 2.115L18.315 9.021L0 9.021Z"
+                            fill="#181717" />
+                    </svg>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <nav class="footer-nav">
+                <a href="Work.html"><span>Work</span></a>
+                <a href="About.html"><span>About me</span></a>
+                <a href="contact.html"><span>Contact</span></a>
+            </nav>
+            <div class="social-links">
+                <a href="https://www.facebook.com/chum.dararith.1?mibextid=ZbWKwL" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\facebook.png"
+                        class="social-icon" alt="Social media 1">
+                </a>
+                <a href="https://t.me/rith_lou" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\telegram.png"
+                        class="social-icon" alt="telegram.png">
+                </a>
+                <a href="https://www.youtube.com/@LouChumdararith" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <img src="Img\youtube.png"
+                        class="social-icon" alt="youtube.png">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Email copied to clipboard!</div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Mobile menu toggle
+            $('#menuToggle').click(function () {
+                $('#nav').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+
+            // Email copy functionality
+            $('#emailBtn').on('click', function () {
+                const email = 'louchumdararith02@gmail.com';
+                navigator.clipboard.writeText(email)
+                    .then(() => showToast())
+                    .catch(() => window.location.href = 'mailto:' + email);
+            });
+
+            function showToast() {
+                $('#toast').addClass('show');
+                setTimeout(() => $('#toast').removeClass('show'), 3000);
+            }
+
+            // Smooth scroll
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                const target = $(this.hash);
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 100
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
